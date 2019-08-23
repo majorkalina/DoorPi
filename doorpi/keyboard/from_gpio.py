@@ -6,6 +6,7 @@ logger = logging.getLogger(__name__)
 logger.debug("%s loaded", __name__)
 
 import RPi.GPIO as RPiGPIO # basic for GPIO control
+import import OPi.GPIO as RpiGPIO # basic for OrangePi Zero GPIO control
 from doorpi.keyboard.AbstractBaseClass import KeyboardAbstractBaseClass, HIGH_LEVEL, LOW_LEVEL
 import doorpi
 
@@ -41,7 +42,8 @@ class GPIO(KeyboardAbstractBaseClass):
         elif pull_up_down == "PUD_UP":
             pull_up_down = RPiGPIO.PUD_UP
         else:
-            pull_up_down = RPiGPIO.PUD_OFF
+            # pull_up_down = RPiGPIO.PUD_OFF
+            pull_up_down = 0
 
         # issue #133
         try:
